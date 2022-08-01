@@ -22,7 +22,11 @@ function App() {
 
   function handleClick(productId) {
     const findedProduct = products.find(product => product.id === productId)
-    setCurrentSale([...currentSale, findedProduct])
+    if(currentSale.includes(findedProduct)) {
+      return null
+    } else {
+      setCurrentSale([...currentSale, findedProduct])
+    }
   }
 
   const totalCart = currentSale.reduce((total, valorAtual) => total + valorAtual.price, 0);

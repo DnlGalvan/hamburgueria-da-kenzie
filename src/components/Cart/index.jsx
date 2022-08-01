@@ -1,8 +1,8 @@
 import { Aside, CartTotal, Container, DivInfo, Li, Ul } from "./style";
 
 const Cart = ({ currentSale, setCurrentSale, totalCart }) => {
-  function removeProduct(index) {
-    setCurrentSale(currentSale.filter(product => product !== index))
+  function removeProduct(productId) {
+    setCurrentSale(currentSale.filter(product => product.id !== productId))
   }
   return (
     <Aside>
@@ -21,7 +21,7 @@ const Cart = ({ currentSale, setCurrentSale, totalCart }) => {
                   <h4>{product.name}</h4>
                   <p>{product.category}</p>
                 </DivInfo>
-                <button onClick={() => removeProduct(product, index)}>Remover</button>
+                <button onClick={() => removeProduct(product.id)}>Remover</button>
               </Li>
             ))}
           </Ul>
